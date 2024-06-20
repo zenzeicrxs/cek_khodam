@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #210d41;
+        }
+        .form-container {
+            background-color: rgb(202, 203, 255);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            background-color: #151158;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result-container {
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+            display: none;
+        }
+        .result-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <form id="dataForm">
+        <h1>CEK KHODAM 100% REAL NO HOAX</h1>
+        <div class="form-group">
+            <label for="name">Siapa nama kamu:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Tulis angka yang ada di pikiranmu</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+        <button type="submit" class="btn-submit">Cek Khodam saya</button>
+    </form>
+</div>
+
+<div class="result-container" id="resultContainer">
+    <H1>HASIL TELEPATI DARI SERVER MENYATAKAN:</H1>
+    <img id="resultPhoto" src="#" alt="Foto Random">
+</div>
+
+<script>
+    document.getElementById('dataForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+
+        const photos = [
+            'photos/1.png',
+            'photos/2.png',
+            'photos/3.png',
+            'photos/4.png',
+            'photos/5.png',
+            'photos/6.png',
+            'photos/7.png',
+            'photos/8.png',
+            'photos/9.png',
+            
+        ];
+
+        const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
+
+        document.getElementById('resultPhoto').src = randomPhoto;
+
+        const resultContainer = document.getElementById('resultContainer');
+        resultContainer.style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
